@@ -81,14 +81,7 @@ text-align: center;
                     {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
                     <span class="post-meta"><i class="fa-regular fa-calendar" style="margin-right: 5px;"></i>{{ post.date | date: date_format }}</span>
                     <span class="post-meta"><i class="fa-regular fa-clock" style = "margin-right: 5px;"></i>
-
-                      {% capture words %}
-{{ content | number_of_words | minus: 180 }}
-{% endcapture %}
-{% unless words contains '-' %}
-{{ words | plus: 180 | divided_by: 180 | append: ' min' }}
-{% endunless %}
-                    
+                      {{ post.wordcount }}  
                     </span>
                     <span class="post-meta"><i class="fa-solid fa-user" style = "margin-right: 5px;"></i>{{ post.author }}</span>
                     <span class="post-meta"><i class="fa-solid fa-folder" style = "margin-right: 5px;"></i>
