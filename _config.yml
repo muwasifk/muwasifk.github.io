@@ -22,7 +22,7 @@ title: M. Wasif Kamran
 email: muwasifk@hotmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   M. Wasif Kamran is an IB2 student at Merivale High School aiming to pursue computer science.
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://muwasifk.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  muwasifk
 linkedin_username: muwasifk
