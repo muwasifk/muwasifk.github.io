@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://muwasifk.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://muwasifk.github.io/" rel="alternate" type="text/html" /><updated>2023-08-26T20:58:27-04:00</updated><id>https://muwasifk.github.io/feed.xml</id><title type="html">M. Wasif Kamran</title><subtitle>M. Wasif Kamran is an IB2 student at Merivale High School aiming to pursue computer science.</subtitle><entry><title type="html">On Polynomial Irreducibility Criteria</title><link href="https://muwasifk.github.io/math/2023/08/22/irreducibility-criteria.html" rel="alternate" type="text/html" title="On Polynomial Irreducibility Criteria" /><published>2023-08-22T23:14:48-04:00</published><updated>2023-08-22T23:14:48-04:00</updated><id>https://muwasifk.github.io/math/2023/08/22/irreducibility-criteria</id><content type="html" xml:base="https://muwasifk.github.io/math/2023/08/22/irreducibility-criteria.html"><![CDATA[<p>Polynomial irreducability is a simple concept to understand by itself. It’s simply just that if a polynomial is irreducible in \(\mathbb{Z}[x]\), then it cannot be factored into polynomials of lower-degree with integer coefficients.</p>
+
+<p>A cool little “theorem” I stumbled upon is Perron’s Irreducibility Criterion, first published in 1907 by Oskar Perron in Journal für die reine und angewandte Mathematik. It essentially states that given a polynomial 
+(m_1)</p>
+
+\[f(x) = \sum_{k = 0}^n a_{k}x^k\]
+
+<p>where \(a_n = 1\) (monic) and \(a_0 \neq 0\), if either of the following two conditions are satisfied, then \(f\) is irreducible over the integers <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>:</p>
+
+\[\bullet ~ |a_{n-1}| &gt; 1 + |a_{n-2}| + \cdots + |a_0|\]
+
+\[\bullet ~ |a_{n-1}| = 1 + |a_{n-2}| + \cdots + |a_0|, \quad f(\pm 1) \neq 0.\]
+
+<p>Pretty easy to comprehend. Now check out IMO 1993 P1:</p>
+
+<blockquote>
+  <p>Let \(f\left(x\right)=x^n+5x^{n-1}+3\), where \(n&gt;1\) is an integer. Prove that \(f\left(x\right)\) cannot be expressed as the product of two non-constant polynomials with integer coefficients.</p>
+</blockquote>
+
+<p><strong>Solution.</strong> Trivial by Perron’s Irreducibility Criterion. \(\blacksquare\)</p>
+
+<p>If I’m going to be completely honest, this solution would have problably only yielded a single point (or none at all!). The fact that this problem was even on the IMO means that either Perron’s Criterion wasn’t well known back then or it wasn’t meant to be cited. It’s still amusing to just say that an IMO problem, although quite old, is trivial.</p>
+
+<p>A similar but less trivial problem is from China TST 1994:</p>
+
+<blockquote>
+  <p>Given distinct prime numbers p and q and a natural number \(n \geq 3\), find all \(a \in \mathbb{Z}\) such that the polynomial \(f(x) = x^n + ax^{n-1} + pq\) can be factored into 2 integral polynomials of degree at least 1.</p>
+</blockquote>
+
+<p><strong>Solution.</strong> If we take \(f(x)\) in \(\mathbb{Z}/p\mathbb{Z}\), we get</p>
+
+\[f(x) = (x^{n-1})(x+a).\]
+
+<p>Then, we can let \(f(x) = g(x)h(x)\) because the two factors are irreducible in the field. Then, we can write</p>
+
+\[g(x) = x^m + pg'(x)\]
+
+\[h(x) = x^{n-1-m}(x+a) + ph'(x)\]
+
+<p>where \(g’(x), h’(x) \in \mathbb{Z}[x]\). Then, we have</p>
+
+\[f(x) = g(x)h(x) = x^{n-1}(x+a) + px^mh'(x) + px^{n-1-m}(x+a)g'(x) + p^2g'(x)h'(x).\]
+
+<p>Clearly, \(m \neq 0 \) because the degrees of both sides could not possibly be the same, resulting in a contradiction, and it’s a similar story for when \(0 &lt; m &lt; n - 1\). When \(m &gt; n - 1\), we would have problems when \(x=0\). This means that \(m = n - 1\). Then,</p>
+
+\[f(x) = x^{n-1}(x+a) + px^{n-1}h'(x) + px(x+a)g'(x) + p^2g'(x)h'(x).\]
+
+<p>By analyzing the terms in \(f(x)\) and noting that \(p \in \mathbb{Z}\), we find that \(g’(x)\) and \(g’(x)\) and \(h’(x)\) are constants in \(\mathbb{Z}\). Thus, by the Integer Root Theorem, \(f(x)\) must have an integer root.</p>
+
+<p>Let’s say \(p\) is a root of \(f(x)\). Then, \(p^{n-1} \mid x^n + ax^{n-1}\) but \(p^{n-1} \nmid pq\), so any potential integer root which is a multiple of \(p\) or \(q\) (by symmetry) wouldn’t work. Thus, the only options for integer roots are \(1\) and \(-1\).</p>
+
+<p>By simple substitution and solving, we find that \(a = -1 - pq, 1 + (-1)^npq\). \(\blacksquare\)</p>
+
+<p>When I originally saw this problem, I thought about using the Schönemann–Eisenstein criterion but found this solution significantly simpler. There probably is a solution using a variation/extension of Eisenstein, though.</p>
+
+<p>There are some other cool other criteria for polynomial irreudicibility that I’ve read up on as well:</p>
+
+<ul>
+  <li>Schönemann–Eisenstein</li>
+  <li>Gauss’ Lemma</li>
+  <li>Cohn</li>
+  <li>Bauer</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nf">sayHello</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello World</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`Hello </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>  
+<span class="p">}</span>  </code></pre></figure>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Supposedly, using Gauss’ Lemma, one can show that is reducible over the rational numbers as well. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>muwasifk</name></author><category term="math" /><summary type="html"><![CDATA[Polynomial irreducability is a simple concept to understand by itself. It’s simply just that if a polynomial is irreducible in \(\mathbb{Z}[x]\), then it cannot be factored into polynomials of lower-degree with integer coefficients.]]></summary></entry></feed>

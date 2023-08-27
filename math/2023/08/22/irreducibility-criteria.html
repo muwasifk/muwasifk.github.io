@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>On Polynomial Irreducibility Criteria | M. Wasif Kamran</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="On Polynomial Irreducibility Criteria" />
+<meta name="author" content="muwasifk" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Polynomial irreducability is a simple concept to understand by itself. It’s simply just that if a polynomial is irreducible in \(\mathbb{Z}[x]\), then it cannot be factored into polynomials of lower-degree with integer coefficients." />
+<meta property="og:description" content="Polynomial irreducability is a simple concept to understand by itself. It’s simply just that if a polynomial is irreducible in \(\mathbb{Z}[x]\), then it cannot be factored into polynomials of lower-degree with integer coefficients." />
+<link rel="canonical" href="https://muwasifk.github.io/math/2023/08/22/irreducibility-criteria.html" />
+<meta property="og:url" content="https://muwasifk.github.io/math/2023/08/22/irreducibility-criteria.html" />
+<meta property="og:site_name" content="M. Wasif Kamran" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-22T23:14:48-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="On Polynomial Irreducibility Criteria" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"muwasifk"},"dateModified":"2023-08-22T23:14:48-04:00","datePublished":"2023-08-22T23:14:48-04:00","description":"Polynomial irreducability is a simple concept to understand by itself. It’s simply just that if a polynomial is irreducible in \\(\\mathbb{Z}[x]\\), then it cannot be factored into polynomials of lower-degree with integer coefficients.","headline":"On Polynomial Irreducibility Criteria","mainEntityOfPage":{"@type":"WebPage","@id":"https://muwasifk.github.io/math/2023/08/22/irreducibility-criteria.html"},"url":"https://muwasifk.github.io/math/2023/08/22/irreducibility-criteria.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/product-sans" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'><link type="application/atom+xml" rel="alternate" href="https://muwasifk.github.io/feed.xml" title="M. Wasif Kamran" /><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          TeX: {
+            equationNumbers: {
+              autoNumber: "AMS"
+            }
+          },
+          tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(', '\\)'] ],
+            displayMath: [ ['$$','$$'] ],
+            processEscapes: true,
+          }
+        });
+      </script>
+      <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">M. Wasif Kamran</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/projects/">Projects</a><a class="page-link" href="/blog/">Blog</a><a class="page-link" href="/assets/resume.pdf">Résumé</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <style>
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-content {
+  flex: 2.3;
+}
+
+.author-sidebar {
+        min-width:175px;
+        flex-shrink: 0;
+        box-sizing: border-box;
+  flex: 0.4;
+  /* text-align: center; */
+  /* background-color: aqua; */
+  margin-left: 20px;
+}
+
+
+.author-avatar {
+text-align: center;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  width: 175px;
+  height: 175px;
+}
+
+.author-name {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.author-bio {
+  font-size: 0.9rem;
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .author-sidebar {
+    order: 1; /* Move the sidebar to the top */
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+
+  .author-avatar {
+        width: 150px; 
+        height: 150px;
+  }
+}
+</style>
+<div class="container">
+        <div class="main-content">
+                <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+                <header class="post-header">
+                  <h1 class="post-title p-name" itemprop="name headline">On Polynomial Irreducibility Criteria</h1>
+                  <p class="post-meta">
+                    <time class="dt-published" datetime="2023-08-22T23:14:48-04:00" itemprop="datePublished">Aug 22, 2023
+                    </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">muwasifk</span></span></p>
+                </header>
+              
+                <div class="post-content e-content" itemprop="articleBody">
+                  <p>Polynomial irreducability is a simple concept to understand by itself. It’s simply just that if a polynomial is irreducible in \(\mathbb{Z}[x]\), then it cannot be factored into polynomials of lower-degree with integer coefficients.</p>
+
+<p>A cool little “theorem” I stumbled upon is Perron’s Irreducibility Criterion, first published in 1907 by Oskar Perron in Journal für die reine und angewandte Mathematik. It essentially states that given a polynomial 
+(m_1)</p>
+
+\[f(x) = \sum_{k = 0}^n a_{k}x^k\]
+
+<p>where \(a_n = 1\) (monic) and \(a_0 \neq 0\), if either of the following two conditions are satisfied, then \(f\) is irreducible over the integers <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>:</p>
+
+\[\bullet ~ |a_{n-1}| &gt; 1 + |a_{n-2}| + \cdots + |a_0|\]
+
+\[\bullet ~ |a_{n-1}| = 1 + |a_{n-2}| + \cdots + |a_0|, \quad f(\pm 1) \neq 0.\]
+
+<p>Pretty easy to comprehend. Now check out IMO 1993 P1:</p>
+
+<blockquote>
+  <p>Let \(f\left(x\right)=x^n+5x^{n-1}+3\), where \(n&gt;1\) is an integer. Prove that \(f\left(x\right)\) cannot be expressed as the product of two non-constant polynomials with integer coefficients.</p>
+</blockquote>
+
+<p><strong>Solution.</strong> Trivial by Perron’s Irreducibility Criterion. \(\blacksquare\)</p>
+
+<p>If I’m going to be completely honest, this solution would have problably only yielded a single point (or none at all!). The fact that this problem was even on the IMO means that either Perron’s Criterion wasn’t well known back then or it wasn’t meant to be cited. It’s still amusing to just say that an IMO problem, although quite old, is trivial.</p>
+
+<p>A similar but less trivial problem is from China TST 1994:</p>
+
+<blockquote>
+  <p>Given distinct prime numbers p and q and a natural number \(n \geq 3\), find all \(a \in \mathbb{Z}\) such that the polynomial \(f(x) = x^n + ax^{n-1} + pq\) can be factored into 2 integral polynomials of degree at least 1.</p>
+</blockquote>
+
+<p><strong>Solution.</strong> If we take \(f(x)\) in \(\mathbb{Z}/p\mathbb{Z}\), we get</p>
+
+\[f(x) = (x^{n-1})(x+a).\]
+
+<p>Then, we can let \(f(x) = g(x)h(x)\) because the two factors are irreducible in the field. Then, we can write</p>
+
+\[g(x) = x^m + pg'(x)\]
+
+\[h(x) = x^{n-1-m}(x+a) + ph'(x)\]
+
+<p>where \(g’(x), h’(x) \in \mathbb{Z}[x]\). Then, we have</p>
+
+\[f(x) = g(x)h(x) = x^{n-1}(x+a) + px^mh'(x) + px^{n-1-m}(x+a)g'(x) + p^2g'(x)h'(x).\]
+
+<p>Clearly, \(m \neq 0 \) because the degrees of both sides could not possibly be the same, resulting in a contradiction, and it’s a similar story for when \(0 &lt; m &lt; n - 1\). When \(m &gt; n - 1\), we would have problems when \(x=0\). This means that \(m = n - 1\). Then,</p>
+
+\[f(x) = x^{n-1}(x+a) + px^{n-1}h'(x) + px(x+a)g'(x) + p^2g'(x)h'(x).\]
+
+<p>By analyzing the terms in \(f(x)\) and noting that \(p \in \mathbb{Z}\), we find that \(g’(x)\) and \(g’(x)\) and \(h’(x)\) are constants in \(\mathbb{Z}\). Thus, by the Integer Root Theorem, \(f(x)\) must have an integer root.</p>
+
+<p>Let’s say \(p\) is a root of \(f(x)\). Then, \(p^{n-1} \mid x^n + ax^{n-1}\) but \(p^{n-1} \nmid pq\), so any potential integer root which is a multiple of \(p\) or \(q\) (by symmetry) wouldn’t work. Thus, the only options for integer roots are \(1\) and \(-1\).</p>
+
+<p>By simple substitution and solving, we find that \(a = -1 - pq, 1 + (-1)^npq\). \(\blacksquare\)</p>
+
+<p>When I originally saw this problem, I thought about using the Schönemann–Eisenstein criterion but found this solution significantly simpler. There probably is a solution using a variation/extension of Eisenstein, though.</p>
+
+<p>There are some other cool other criteria for polynomial irreudicibility that I’ve read up on as well:</p>
+
+<ul>
+  <li>Schönemann–Eisenstein</li>
+  <li>Gauss’ Lemma</li>
+  <li>Cohn</li>
+  <li>Bauer</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nf">sayHello</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello World</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`Hello </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>  
+<span class="p">}</span>  </code></pre></figure>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Supposedly, using Gauss’ Lemma, one can show that is reducible over the rational numbers as well. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+                </div><a class="u-url" href="/math/2023/08/22/irreducibility-criteria.html" hidden></a>
+              </article>
+        </div>
+        
+        <div class="author-sidebar">
+          <img class="author-avatar" src="/assets/profile.png" alt="Author Avatar"><style>
+        .social-media-list {
+                margin-left: 10px;
+                font-size: 10pt;
+                color: black!important;
+        }
+
+        
+</style>
+<ul class="social-media-list"><li><a href="https://github.com/muwasifk"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">muwasifk</span></a></li><li><a href="https://www.linkedin.com/in/muwasifk"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">muwasifk</span></a></li><li><a href="https://stackexchange.com/users/25998156/isoparallel"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#stackoverflow"></use></svg> <span class="username">isoparallel</span></a></li>
+
+  <li><i class="fa-brands fa-discord" style="color: #818181; padding-right: 5px;"></i> <span class="username">isofish</span></li>
+
+  <li><a href="/assets/muwasifkpublickey.txt"> <i class="fa-solid fa-key" style="color: #818181; padding-right: 8px;"></i> <span class="username" style = "font-size: 9pt;">158C 9115 95CC 8AFE</span></a></li>
+
+  <li> <a href="mailto:muwasifk@hotmail.com"><span class="username">muwasifk@hotmail.com</span></a></li>
+
+  
+
+</ul>
+</div>
+      </div>
+      </div>
+    </main><footer class="site-footer h-card" style = "color: rgb(100, 100, 100)">
+  <data class="u-url" href="/"></data>
+
+
+  <div class="wrapper">
+        
+Copyright © 2023 Muhammad Wasif Kamran. All Rights Reserved.
+
+</div>
+</footer>
+</body>
+
+</html>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
