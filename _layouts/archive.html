@@ -1,0 +1,112 @@
+---
+layout: default
+---
+<style>
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-content {
+  flex: 2.3;
+}
+
+.author-sidebar {
+        min-width:175px;
+        flex-shrink: 0;
+        box-sizing: border-box;
+  flex: 0.4;
+  /* text-align: center; */
+  /* background-color: aqua; */
+  margin-left: 20px;
+}
+
+
+.author-avatar {
+text-align: center;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  width: 175px;
+  height: 175px;
+}
+
+.author-name {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.author-bio {
+  font-size: 0.9rem;
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .author-sidebar {
+    order: 1; /* Move the sidebar to the top */
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+
+  .author-avatar {
+        width: 150px; 
+        height: 150px;
+  }
+}
+.post-meta {
+        margin-right: 15px;
+        margin-bottom: 0px;
+}
+.pholder {
+        margin-bottom: 3px;
+}
+</style>
+<div class="container">
+        <div class="main-content">
+                {%- if site.posts.size > 0 -%}
+                <ul class="post-list">
+                  {%- for post in site.posts -%}
+                  <li>
+                    <h3 class = "archive-title">
+                      <a class="post-link" href="{{ post.url | relative_url }}">
+                        {{ post.title | escape }}
+                      </a>
+                    </h3>
+                    <div class = "pholder">
+                    {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                    <span class="post-meta"><i class="fa-regular fa-calendar" style="margin-right: 5px;"></i>{{ post.date | date: date_format }}</span>
+                    <span class="post-meta"><i class="fa-regular fa-clock" style = "margin-right: 5px;"></i>
+                      {{ post.content | reading_time  }}  
+                    </span>
+                    <span class="post-meta"><i class="fa-solid fa-user" style = "margin-right: 5px;"></i>{{ post.author }}</span>
+                    <span class="post-meta"><i class="fa-solid fa-folder" style = "margin-right: 5px;"></i>
+                        {% for category in post.categories %}
+                        {{ category }}
+                        {% endfor %}
+                </span></div>
+
+                        {%- if site.show_excerpts -%}
+                      {{ post.excerpt }}
+                    {%- endif -%}
+
+                
+                </li>
+                  {%- endfor -%}
+                </ul>
+            
+              {%- endif -%}
+        </div>
+        
+        <div class="author-sidebar">
+          <img class="author-avatar" src="/assets/profile.jpeg" alt="Author Avatar">
+          {%- include social.html -%}
+        </div>
+      </div>
+        
+
+              

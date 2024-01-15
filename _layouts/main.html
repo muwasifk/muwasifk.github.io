@@ -1,0 +1,70 @@
+---
+layout: default
+---
+<style>
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-content {
+  flex: 2.3;
+}
+
+
+.author-avatar {
+text-align: center;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  width: 175px;
+  height: 175px;
+}
+
+.author-name {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.author-bio {
+  font-size: 0.9rem;
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .author-sidebar {
+    order: 1; /* Move the sidebar to the top */
+    margin-top: 20px;
+    margin-left: 0px;
+  }
+
+  .author-avatar {
+        width: 150px; 
+        height: 150px;
+  }
+}
+</style>
+<div class="container">
+        <div class="main-content">
+          <article class="post">
+          
+            <div class="post-content">
+              {{ content }}
+            </div>
+            
+          </article>
+        </div>
+        
+        <div class="author-sidebar">
+          <img class="author-avatar" src="/assets/profile.jpeg" alt="Author Avatar">
+          {%- include social.html -%}
+        </div>
+      </div>
+        
+
+              
